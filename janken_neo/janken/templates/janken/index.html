@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <title>じゃんけんゲーム</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <section class="container">
+    <div class="npcArea">
+      <div class="npcTarget" id="nTarget">
+        <p id="target">じゃんけん</p>
+      </div>
+    </div>
+
+    <div class="pTarget">
+      <div class="gooBtn" id="gooBtn">
+        <p id="goo">ぐー</p>
+      </div>
+
+      <div class="chokiBtn" id="chokiBtn">
+        <p id="choki">ちょき</p>
+      </div>
+      <div class="paaBtn" id="paaBtn">
+        <p id="paa">ぱー</p>
+      </div>
+    </div>
+    <div class="resultArea">
+             <p id="nowResult">↑選んでね！↑</p>
+      <div id="current">
+        <p>Player:<span id="pResults">0</span>win NPC:<span id="nResults">0</span>win</p>
+      </div>
+    </div>
+  </section>
+  <section class="start" id="startArea">
+    <p>ルール</p>
+    <p>先に3勝したほうが勝ちです。</p>
+    <p id="startBtn" class="btn">Game Start</p>
+  </section>
+  <section id="result">
+    <p id="resultComment"></p>
+    <p id="resetBtn" class="btn">Replay</p>
+  </section>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
