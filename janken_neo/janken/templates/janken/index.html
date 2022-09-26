@@ -220,78 +220,52 @@
       $('.JANKEN').on('click', function (e) {
         e.preventDefault();
         let data = { id: $(this).data('id') };
-        $.ajax(
-          {
-            url: '{% url "blog:ajax_janken" %}',
-            type: 'POST',
-            data: data,
-            dataType: 'json',
-            timeout: 600000,
-          }.done(function (response) {
-            btnOff();
-            let my_kekka;
-            my_kekka = response;
-            console.log(my_kekka);
+        $.ajax({
+          url: '{% url "blog:ajax_janken" %}',
+          type: 'POST',
+          data: data,
+          dataType: 'json',
+          timeout: 600000,
+        }).done(function (response) {
+          btnOff();
+          let my_kekka;
+          my_kekka = response;
+          console.log(my_kekka);
 
-            // NPC「ぐー」「ちょき」「ぱー」の表示
+          // NPC「ぐー」「ちょき」「ぱー」の表示
 
-            function npcChoice() {
-              npcJanken = my_kekka['NPC手'];
-              if (npcJanken === 'ぐー') {
-                target.textContent = 'ぐー';
-                nTarget.style.background = '#eea85f';
-                nTarget.style.opacity = '1.0';
-                nTarget.style.fontSize = '40px';
-              } else if (npcJanken === 'ちょき') {
-                target.textContent = 'ちょき';
-                nTarget.style.background = '#f18f65';
-                nTarget.style.opacity = '1.0';
-                nTarget.style.fontSize = '40px';
-              } else {
-                target.textContent = 'ぱー';
-                nTarget.style.background = '#ab785a';
-                nTarget.style.opacity = '1.0';
-                nTarget.style.fontSize = '40px';
-              }
+          function npcChoice() {
+            npcJanken = my_kekka['NPC手'];
+            if (npcJanken === 'ぐー') {
+              target.textContent = 'ぐー';
+              nTarget.style.background = '#eea85f';
+              nTarget.style.opacity = '1.0';
+              nTarget.style.fontSize = '40px';
+            } else if (npcJanken === 'ちょき') {
+              target.textContent = 'ちょき';
+              nTarget.style.background = '#f18f65';
+              nTarget.style.opacity = '1.0';
+              nTarget.style.fontSize = '40px';
+            } else {
+              target.textContent = 'ぱー';
+              nTarget.style.background = '#ab785a';
+              nTarget.style.opacity = '1.0';
+              nTarget.style.fontSize = '40px';
             }
-            npcChoice();
-            nowResultUpdate();
+          }
+          npcChoice();
+          nowResultUpdate();
 
-            function nowResultUpdate() {
-              if (response['kekka'] === 'かち') {
-                myWin += 1;
-                pResults.textContent = myWin;
-                if (myWin === 3) {
-                  result.style.animationName = 'upToDown';
-                  result.style.animationDuration = '3s';
-                  result.style.display = 'block';
-                  resultComment.textContent = 'あなたの勝ちです！';
-                } else {
-                  setTimeout(function () {
-                    jankenReset();
-                    btnOn();
-
-                    nowResultReset();
-                  }, 4000);
-                }
-              } else if (response['kekka'] === 'まけ') {
-                npcWin += 1;
-                nResults.textContent = npcWin;
-
-                if (npcWin === 3) {
-                  result.style.animationName = 'upToDown';
-                  result.style.animationDuration = '3s';
-                  result.style.display = 'block';
-                  resultComment.textContent = 'あなたの負けです！';
-                } else {
-                  setTimeout(function () {
-                    jankenReset();
-                    btnOn();
-
-                    nowResultReset();
-                  }, 4000);
-                }
-              } else if (response['kekka'] === 'あいこ') {
+          function nowResultUpdate() {
+            if (response['kekka'] === 'かち') {
+              myWin += 1;
+              pResults.textContent = myWin;
+              if (myWin === 3) {
+                result.style.animationName = 'upToDown';
+                result.style.animationDuration = '3s';
+                result.style.display = 'block';
+                resultComment.textContent = 'あなたの勝ちです！';
+              } else {
                 setTimeout(function () {
                   jankenReset();
                   btnOn();
@@ -299,20 +273,44 @@
                   nowResultReset();
                 }, 4000);
               }
+            } else if (response['kekka'] === 'まけ') {
+              npcWin += 1;
+              nResults.textContent = npcWin;
 
-              // リセットボタン押した時のアレ
-              resetBtn.addEventListener('click', () => {
-                result.style.display = 'none';
-                myWin = 0;
-                npcWin = 0;
-                nowResultUpdate();
-                btnOn();
+              if (npcWin === 3) {
+                result.style.animationName = 'upToDown';
+                result.style.animationDuration = '3s';
+                result.style.display = 'block';
+                resultComment.textContent = 'あなたの負けです！';
+              } else {
+                setTimeout(function () {
+                  jankenReset();
+                  btnOn();
+
+                  nowResultReset();
+                }, 4000);
+              }
+            } else if (response['kekka'] === 'あいこ') {
+              setTimeout(function () {
                 jankenReset();
+                btnOn();
+
                 nowResultReset();
-              });
+              }, 4000);
             }
-          })
-        );
+
+            // リセットボタン押した時のアレ
+            resetBtn.addEventListener('click', () => {
+              result.style.display = 'none';
+              myWin = 0;
+              npcWin = 0;
+              nowResultUpdate();
+              btnOn();
+              jankenReset();
+              nowResultReset();
+            });
+          }
+        });
       });
     </script>
   </body>
