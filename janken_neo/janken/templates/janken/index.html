@@ -20,10 +20,10 @@
         </div>
       </div>
 
-      <div class="pTarget">
         <form
           name="fm"
           id="ajax-janken"
+          class="pTarget"
           action="{% url 'blog:ajax_janken' %}"
           method="POST"
         >
@@ -56,7 +56,6 @@
             <p id="paa">ぱー</p>
           </div>
         </form>
-      </div>
 
       <div class="resultArea">
         <p id="nowResult">↑選んでね！↑</p>
