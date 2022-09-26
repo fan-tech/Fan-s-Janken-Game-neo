@@ -132,52 +132,6 @@
         }
       }
 
-      // 「ちょき」ボタン無効
-      function chokiOff() {
-        choki.textContent = '';
-        chokiBtn.style.background = 'gray';
-        chokiBtn.style.cursor = 'auto';
-        chokiBtn.style.pointerEvents = 'none';
-      }
-      // 「ちょき」ボタン有効
-      function chokiOn() {
-        choki.textContent = 'ちょき';
-        chokiBtn.style.background = '#f18f65';
-        chokiBtn.style.cursor = 'pointer';
-        chokiBtn.style.pointerEvents = 'auto';
-      }
-
-      // 「ぱー」ボタン無効
-      function paaOff() {
-        paa.textContent = '';
-        paaBtn.style.background = 'gray';
-        paaBtn.style.cursor = 'auto';
-        paaBtn.style.pointerEvents = 'none';
-      }
-
-      // 「ぱー」ボタン有効
-      function paaOn() {
-        paa.textContent = 'ぱー';
-        paaBtn.style.background = '#ab785a';
-        paaBtn.style.cursor = 'poiter';
-        paaBtn.style.pointerEvents = 'auto';
-      }
-      // 「ぐー」ボタン無効
-      function gooOff() {
-        goo.textContent = '';
-        gooBtn.style.background = 'gray';
-        gooBtn.style.cursor = 'auto';
-        gooBtn.style.pointerEvents = 'none';
-      }
-
-      // 「ぐー」ボタン有効
-      function gooOn() {
-        goo.textContent = 'ぐー';
-        gooBtn.style.background = '#eea85f';
-        gooBtn.style.cursor = 'poiter';
-        gooBtn.style.pointerEvents = 'auto';
-      }
-
       // 「じゃんけん」ボタンに戻す。
       function jankenReset() {
         target.textContent = 'じゃんけん';
@@ -209,57 +163,16 @@
         nowResult.textContent = '↑選んでね！↑';
         nowResult.style.backgroundColor = 'gray';
       }
-      // 結果を更新する
 
-      // function nowResultUpdate() {
-      //   pResults.textContent = myWin;
-      //   nResults.textContent = npcWin;
-      // }
 
       //画面操作有効/無効化関数
       function btnOff() {
-        // $('#GOO').prop('disabled',true);
-        // $('#CHOKI').prop('disabled',true);
-        // $('#PAA').prop('disabled',true);
-        // gooBtn.style.pointerEvents = 'none';
-        // paaBtn.style.pointerEvents = 'none';
-        // chokiBtn.style.pointerEvents = 'none';
         document.getElementById('ajax-janken').style.pointerEvents = 'none';
       }
 
       function btnOn() {
-        // $('#GOO').prop('disabled',false);
-        // $('#CHOKI').prop('disabled',false);
-        // $('#PAA').prop('disabled',false);
-        // chokiBtn.style.pointerEvents = 'auto';
-        // gooBtn.style.pointerEvents = 'auto';
-        // paaBtn.style.pointerEvents = 'auto';
         document.getElementById('ajax-janken').style.pointerEvents = 'auto';
       }
-
-      // // 終了条件分岐
-      // function resultCheck() {
-      //   if (myWin === 3) {
-      //     result.style.animationName = 'upToDown';
-      //     result.style.animationDuration = '3s';
-      //     result.style.display = 'block';
-      //     resultComment.textContent = 'あなたの勝ちです！';
-      //   } else if (npcWin === 3) {
-      //     result.style.animationName = 'upToDown';
-      //     result.style.animationDuration = '3s';
-      //     result.style.display = 'block';
-      //     resultComment.textContent = 'あなたの負けです！';
-      //   } else {
-      //     setTimeout(function () {
-      //       jankenReset();
-      //       gooOn();
-      //       paaOn();
-      //       chokiOn();
-
-      //       nowResultReset();
-      //     }, 4000);
-      //   }
-      // }
 
       // ここからはじまる！
       btnOff();
@@ -390,27 +303,6 @@
                 nowResultReset();
               }, 4000);
             };
-
-          // function resultCheck() {
-          //   if (myWin === 3) {
-          //     result.style.animationName = 'upToDown';
-          //     result.style.animationDuration = '3s';
-          //     result.style.display = 'block';
-          //     resultComment.textContent = 'あなたの勝ちです！';
-          //   } else if (npcWin === 3) {
-          //     result.style.animationName = 'upToDown';
-          //     result.style.animationDuration = '3s';
-          //     result.style.display = 'block';
-          //     resultComment.textContent = 'あなたの負けです！';
-          //   } else {
-          //     setTimeout(function () {
-          //       jankenReset();
-          //       btnOn();
-
-          //       nowResultReset();
-          //     }, 4000);
-          //   }
-          // }
 
           // リセットボタン押した時のアレ
           resetBtn.addEventListener('click', () => {
