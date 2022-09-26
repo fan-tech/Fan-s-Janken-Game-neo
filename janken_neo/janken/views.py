@@ -21,15 +21,6 @@ def ajax_janken(request):
     my_janken = int(request.POST['id'])
     d ={'kekka':-1}
 
-
-
-    def info(msg):
-        logger = logging.getLogger('command')
-        logger.info(msg)
-
-    info('---log---')
-    info(request.POST.dict())
-
     if npc_janken ==0 and my_janken ==0:
         # 2はあいこ
         d = {'kekka': 'あいこ','NPC手':'ぐー'}
@@ -58,24 +49,3 @@ def ajax_janken(request):
         # 2はあいこ
         d = {'kekka': 'あいこ', 'NPC手': 'ぱー'}
     return JsonResponse(d)
-
-
-# number1 = int(request.POST.get('number1'))
-# number2 = int(request.POST.get('number2'))
-# plus = number1 + number2
-# minus = number1 - number2
-# d = {
-#     'plus': plus,
-#     'minus': minus,
-# }
-# return JsonResponse(d)
-
-
-# def data_json(request):
-#     if request.method == "POST":
-#         #NPCじゃんけんの手を生成する
-#         NPCjanken = random.randint(0,2)
-#         #からの辞書を用意する
-#         context={}
-#         context["janken"] = NPCjanken
-#         return JsonResponse(context)

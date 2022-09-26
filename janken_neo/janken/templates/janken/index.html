@@ -226,7 +226,8 @@
           type: 'POST',
           data: data,
           dataType: 'json',
-        }).done(function (response) {
+          timeout:60000,
+        }.done(function (response) {
           btnOff();
           let my_kekka;
           my_kekka = response;
