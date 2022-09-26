@@ -98,7 +98,7 @@ STATICFILES_DIRS = [
 
 LANGUAGE_CODE = 'ja'
 
-TIME_ZONE = 'Asia/Japan'
+TIME_ZONE = 'Asia/Tokyo'
 
 USE_I18N = True
 
