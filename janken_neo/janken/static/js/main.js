@@ -20,6 +20,8 @@
   const result = document.getElementById('result');
   const resultComment = document.getElementById('resultComment');
 
+
+
   // じゃんけんらんだむ
   let npcJanken;
 
@@ -174,12 +176,41 @@
   // ここからはじまる！
   btnOff();
 
-  // ルール説明画面をスタートを押したら消す。
-  // ゲームスタート。
-  startBtn.addEventListener('click', () => {
-    document.getElementById('startArea').style.display = 'none';
-    btnOn();
-  });
+  function setCookie(key, value) {
+    document.cookie = key + '=' + value + ';';
+  }
+
+  function getCookie(key) {
+    const cookies = document.cookie;
+    const cookiesAry = cookies.split(';');
+
+    for (let i = 0; i < cookiesAry.length; i++) {
+      let cookie = cookiesAry[i].split('=');
+      if (cookie[0] === key) {
+        return cookie;
+      }
+    }
+  }
+
+  const keyName = 'visited';
+  const keyValue = true;
+  const cookie = getCookie(keyName);
+
+  if (typeof cookie === 'undefined' || cookie[1] !== keyValue) {
+    //Cookieをセットする
+    setCookie(keyName, keyValue);
+
+    //ここに初回アクセス時の処理
+    // ルール説明画面をスタートを押したら消す。
+    // ゲームスタート。
+    startBtn.addEventListener('click', () => {
+      document.getElementById('startArea').style.display = 'none';
+      btnOn();
+    });
+  } else {
+    //ここに通常アクセス時の処理
+    console.log('訪問済みです');
+  }
 
   // 「ぐー」を押した時の挙動
   gooBtn.addEventListener('click', () => {
@@ -190,11 +221,9 @@
     gooBtn.style.cursor = 'auto';
     gooBtn.style.pointerEvents = 'none';
 
-    npcChoice();
-
-    if (npcJanken === 1) {
+    if (data === 1) {
       aiko();
-    } else if (npcJanken === 2) {
+    } else if (data === 2) {
       youWin();
     } else {
       youLose();
