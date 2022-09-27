@@ -117,7 +117,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_DIR = BASE_DIR / "static"
 
 # collectstaticなどを行った際にファイルを設置するstaticフォルダの場所を記述（開発の際は必要ないのでコメントアウトしておく）
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = str(BASE_DIR) + "/" + "static"
 
 # htmlファイルなどから読み込むstaticフォルダの場所を記述
 STATICFILES_DIRS = [
