@@ -121,6 +121,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),  # サーバでcssを読み込むためのパス
 )
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'root')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # heroku ドキュメントの設定
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
