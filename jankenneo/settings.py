@@ -116,11 +116,7 @@ STATIC_URL = '/static/'
 
 
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # heroku ドキュメントの設定
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' # heroku ドキュメントの設定
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-
-STATIC_HOST = os.path.join('DJANGO_STATIC_HOST', '')
-
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
