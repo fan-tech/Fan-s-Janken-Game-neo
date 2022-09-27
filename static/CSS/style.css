@@ -1,0 +1,216 @@
+body {
+  background : #fff3c3;
+  margin     : 0;
+  font-family: "Sawarabi Mincho";
+  font-size  : 25px;
+}
+
+/* スタート画面 */
+
+#startarea{
+  display: block;
+}
+
+.start {
+  position          : absolute;
+  top               : 250px;
+  left              : 0;
+  right             : 0;
+  margin            : auto;
+  width             : 560px;
+  height            : auto;
+  margin            : 0 auto;
+  border            : 6px solid;
+  border-color      : #fff;
+  border-radius     : 25px;
+  background        : #81cde4;
+  text-align        : center;
+  color             : #fff;
+  font-style        : bold;
+  animation-name    : upToDown;
+  animation-duration: 3s;
+}
+
+/* ボタンスタイル */
+
+.btn {
+  display        : inline-block;
+  padding        : 0.5em 1em;
+  text-decoration: none;
+  background     : #668ad8;
+  /*ボタン色*/
+  color        : #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn:active {
+  -webkit-transform: translateY(4px);
+  transform        : translateY(4px);
+  /*下に動く*/
+  border-bottom: none;
+  /*線を消す*/
+}
+
+/* メイン画面 */
+
+.container {
+  width        : 700px;
+  height       : 800px;
+  margin       : 0 auto;
+  margin-top: 40px;
+  border       : 6px solid;
+  border-color : #fff;
+  border-radius: 25px;
+  background   : #81cde4;
+  text-align   : center;
+  color        : #fff;
+  font-style   : bold;
+  font-size    : 45px;
+  position     : relative;
+}
+
+
+/* NPCのじゃんけん領域 */
+.npcArea {
+  display        : flex;
+  justify-content: center;
+  margin-top     : 50px;
+  margin-bottom  : 50px;
+}
+
+.npcTarget {
+  background   : gray;
+  font-size    : 25px;
+  opacity      : 0.7;
+  width        : 200px;
+  height       : 200px;
+  border-radius: 50%;
+  display      : flex;
+
+}
+
+#target {
+  flex       : 0 1 auto;
+  margin     : auto;
+  user-select: none;
+}
+
+
+/* プレイヤーのじゃんけん領域 */
+
+.pTarget {
+  display        : flex;
+  justify-content: space-around;
+  margin-top     : 50px;
+  margin-bottom  : 50px;
+  user-select: none;
+}
+
+.gooBtn {
+  background   : #eea85f;
+  width        : 200px;
+  height       : 200px;
+  border-radius: 50%;
+  display      : flex;
+  cursor       : pointer;
+}
+
+#goo {
+  flex       : 0 1 auto;
+  margin     : auto;
+  user-select: none;
+}
+
+.chokiBtn {
+  background   : #f18f65;
+  width        : 200px;
+  height       : 200px;
+  border-radius: 50%;
+  display      : flex;
+  cursor       : pointer;
+}
+
+#choki {
+  flex  : 0 1 auto;
+  margin: auto;
+
+  user-select: none;
+}
+
+.paaBtn {
+  background   : #ab785a;
+  width        : 200px;
+  height       : 200px;
+  border-radius: 50%;
+  display      : flex;
+  cursor       : pointer;
+}
+
+#paa {
+  flex  : 0 1 auto;
+  margin: auto;
+
+  user-select: none;
+}
+
+/* 結果表示領域 */
+
+
+#current{
+user-select: none;
+}
+
+
+#nowResult {
+  font-size       : 40px;
+  width           : 300px;
+  height          : auto;
+  background-color: gray;
+  margin          : 0 auto;
+  border-radius   : 25px;
+  user-select     : none;
+}
+
+/* 最終結果 */
+#result {
+  position          : absolute;
+  top               : 250px;
+  left              : 0;
+  right             : 0;
+  margin            : auto;
+  width             : 560px;
+  height            : auto;
+  margin            : 0 auto;
+  border            : 6px solid;
+  border-color      : #fff;
+  border-radius     : 25px;
+  background        : #81cde4;
+  text-align        : center;
+  color             : #fff;
+  font-style        : bold;
+  animation-name    : upToDown;
+  animation-duration: 3s;
+  display           : none;
+}
+
+
+/* アニメーション */
+
+@keyframes upToDown {
+  0% {
+    opacity: 0;
+    /* 透明 */
+    transform: translateY(-250px);
+    /* X軸方向に50px */
+  }
+
+  100% {
+    opacity: 1;
+    /* 不透明 */
+    transform: translateY(0px);
+    /* X軸方向に0px */
+  }
+
+}
