@@ -109,19 +109,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-# サービス内でstaticフォルダのURLパスを設定
-STATIC_URL = 'static/'
+# staticフォルダへの絶対パスを定義
+STATIC_DIR = BASE_DIR / "static"
 
 # collectstaticなどを行った際にファイルを設置するstaticフォルダの場所を記述（開発の際は必要ないのでコメントアウトしておく）
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # htmlファイルなどから読み込むstaticフォルダの場所を記述
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/')
+    STATIC_DIR,
 ]
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
@@ -136,10 +136,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals(), staticfiles=False)
 
+# Tepmpateフォルダへの絶対パスを定義
+TEMPLATE_DIR = BASE_DIR / "Template"
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [TEMPLATE_DIR,],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
