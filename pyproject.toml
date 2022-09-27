@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["fan-tech <fan.n.o.to.39@gmail.com>"]
 readme = "README.md"
-packages = [{include = "janken_neo"}]
+packages = [{include = "jankenneo"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"

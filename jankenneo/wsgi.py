@@ -1,5 +1,5 @@
 """
-WSGI config for janken_neo project.
+WSGI config for jankenneo project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
