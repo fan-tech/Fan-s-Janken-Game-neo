@@ -1,8 +1,9 @@
+from django.urls import path
 from . import views
-from django.urls import path, include
 
-
+app_name = 'blog'
 urlpatterns = [
     path('janken', views.index),
     path('ajax-janken/', views.ajax_janken, name='ajax_janken'),
+
 ]
