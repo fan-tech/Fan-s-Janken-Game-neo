@@ -114,7 +114,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 # サービス内でstaticフォルダのURLパスを設定
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 # collectstaticなどを行った際にファイルを設置するstaticフォルダの場所を記述（開発の際は必要ないのでコメントアウトしておく）
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
