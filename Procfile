@@ -1,1 +1,1 @@
-web: gunicorn janken-neo.wsgi
+web: gunicorn jankenneo.wsgi
