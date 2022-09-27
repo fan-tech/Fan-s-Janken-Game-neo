@@ -2,3 +2,5 @@ django
 django_heroku
 gunicorn
 django-environ
+whitenoise
+dj-database-url
