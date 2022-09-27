@@ -109,22 +109,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-# staticフォルダへの絶対パスを定義
-STATIC_DIR = BASE_DIR / "static"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static/'
 
-# collectstaticなどを行った際にファイルを設置するstaticフォルダの場所を記述（開発の際は必要ないのでコメントアウトしておく）
-STATIC_ROOT = str(BASE_DIR) + "/" + "static"
-
-# htmlファイルなどから読み込むstaticフォルダの場所を記述
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
-
+# Extra places for collectstatic to find static files.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 STATICFILES_STORAGE = "whitenoise.storage.CompressedStaticFilesStorage"
+
 WHITENOISE_ROOT = os.path.join(BASE_DIR, 'staticfiles', 'root')
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # heroku ドキュメントの設定
 # STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
@@ -154,3 +150,5 @@ TEMPLATES = [
         },
     },
 ]
+
+django_heroku.settings(locals())
